@@ -4,7 +4,8 @@ import Menu from "./menuComponent";
 import { DISHES } from "../shared/dishes";
 import { Component } from "react";
 import DishDetail from "./Dishdetail";
-
+import HeaderComponent from "./HeaderComponent";
+import FooterComponent from "./FooterComponent";
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -12,18 +13,16 @@ class Main extends Component {
       dishes: DISHES,
       selectedDish: null,
     };
+    console.log("Constructor Main is called");
   }
   onaDishSelect(DishId) {
     this.setState({ selectedDish: DishId });
   }
   render() {
+    console.log("Main render is called");
     return (
       <div>
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ristronate con fusion</NavbarBrand>
-          </div>
-        </Navbar>
+        <HeaderComponent />
         <Menu
           dishes={this.state.dishes}
           onClick={(DishId) => this.onaDishSelect(DishId)}
@@ -37,9 +36,9 @@ class Main extends Component {
             }
           />
         </div>
+        <FooterComponent />
       </div>
     );
   }
 }
-
 export default Main;
