@@ -17,8 +17,8 @@ function RenderDish({ dish }) {
   }
 }
 
-function RenderComments({ comments }) {
-  return comments.map((comment) => {
+function RenderComments(props) {
+  return props.comments.map((comment) => {
     return (
       <CardText>
         <ul key={comment.id} className="list-unstyled">
