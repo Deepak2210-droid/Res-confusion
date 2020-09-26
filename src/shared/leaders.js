@@ -31,7 +31,7 @@ export const LEADERS = [
   },
   {
     id: 3,
-    name: 'Alberto Somayya',
+    name: 'Deepak Rajamanickkam',
     image: '/assets/images/Deepak_photo.jpg',
     designation: 'Executive Chef',
     abbr: 'EC',

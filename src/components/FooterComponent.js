@@ -73,7 +73,7 @@ function FooterComponent(props) {
               >
                 <i className="fa fa-youtube"></i>
               </a>
-              <a className="btn btn-social-icon" href="mailto:">
+              <a className="btn btn-social-icon btn-gmail" href="mailto:">
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>

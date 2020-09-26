@@ -13,9 +13,11 @@ function RenderCard({ item }) {
   if (item != null) {
     return (
       <Card>
-        <CardImg src={item.image} alt={item.name} />
+        <CardImg width="50" src={item.image} alt={item.name} />
         <CardBody>
-          <CardTitle>{item.name}</CardTitle>
+          <CardTitle>
+            <strong>{item.name}</strong>
+          </CardTitle>
           {item.designation ? (
             <CardSubtitle>{item.designation}</CardSubtitle>
           ) : null}
