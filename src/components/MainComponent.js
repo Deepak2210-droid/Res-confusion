@@ -6,6 +6,8 @@ import DishDetail from './Dishdetail';
 import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import ContactComponent from './ContactComponent';
+import FeedbackComponent from './FeedbackComponent';
+import AboutUs from './AboutUs';
 import { DISHES } from '../shared/dishes';
 import { PROMOTIONS } from '../shared/promotion';
 import { COMMENTS } from '../shared/comments';
@@ -52,6 +54,9 @@ class Main extends Component {
     const MenuList = () => {
       return <Menu dishes={this.state.dishes} />;
     };
+    const AboutUsPage = () => {
+      return <AboutUs leaders={this.state.leaders} />;
+    };
     return (
       <div>
         <BrowserRouter>
@@ -62,6 +67,8 @@ class Main extends Component {
             <Route exact path="/menu" component={MenuList} />
             <Route path="/menu/:dishId" component={DishWithId} />
             <Route exact path="/contactus" component={ContactComponent} />
+            <Route path="/aboutus" component={AboutUsPage} />
+            <Route path="/feedback" component={FeedbackComponent} />
             <Redirect to="/home" />
           </Switch>
 

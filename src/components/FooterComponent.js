@@ -53,10 +53,7 @@ function FooterComponent(props) {
               >
                 <i className="fa fa-facebook"></i>
               </a>
-              <a
-                className="btn btn-social-icon btn-linkedin"
-                href="http://www.linkedin.com/in/"
-              >
+              <a className="btn btn-primary" href="http://www.linkedin.com/in/">
                 <i className="fa fa-linkedin"></i>
               </a>
               <a
