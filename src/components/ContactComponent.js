@@ -24,7 +24,6 @@ class ContactComponent extends Component {
       message: '',
       touched: {
         firstname: false,
-        lastname: false,
         telnum: false,
         email: false,
       },
@@ -49,7 +48,6 @@ class ContactComponent extends Component {
     event.preventDefault();
   }
   handleBlur = (field) => (evt) => {
-    //console.log(field);
     this.setState({
       touched: { ...this.state.touched, [field]: true },
     });
@@ -57,7 +55,6 @@ class ContactComponent extends Component {
   validate(firstname, lastname, telnum, email) {
     const error = {
       firstname: '',
-      lastname: '',
       telnum: '',
       email: '',
     };
@@ -67,17 +64,12 @@ class ContactComponent extends Component {
       error.firstname = 'First Name should be less than 15 charcter';
     }
 
-    if (this.state.touched.lastname && lastname.length < 3) {
-      error.lastname = 'Last Name  should be grester than 3 characters';
-    } else if (this.state.touched.lastname && lastname.length > 15) {
-      error.lastname = 'Last Name should be less than 15 charcter';
-    }
-
     const reg = /^\d+$/;
     if (this.state.touched.telnum && !reg.test(telnum)) {
-      error.telnum = 'Tel num contains only Numbers';
+      error.telnum = 'Tel num is Not Valid';
+    } else if (this.state.touched.telnum && telnum.length != 10) {
+      error.telnum = 'Number not valid';
     }
-
     if (
       this.state.touched.email &&
       email.split('').filter((x) => x === '@').length !== 1 &&
@@ -185,8 +177,6 @@ class ContactComponent extends Component {
                     name="lastname"
                     placeholder="Last Name"
                     value={this.state.lastname}
-                    valid={errors.lastname === ''}
-                    invalid={errors.lastname !== ''}
                     onChange={this.handleInputChange}
                     onBlur={this.handleBlur('lastname')}
                   />
@@ -282,11 +272,24 @@ class ContactComponent extends Component {
                 </Col>
               </FormGroup>
             </Form>
+            {errors.firstname != '' ||
+            errors.lastname != '' ||
+            errors.telnum != '' ||
+            errors.email != '' ? (
+              <div class="alert alert-danger">
+                <strong>Danger!</strong> This alert box could indicate a
+                dangerous or potentially negative action.
+              </div>
+            ) : (
+              <div className="alert alert-success">
+                <strong>Details are correct </strong>You can submit your
+                feedback{' '}
+              </div>
+            )}
           </div>
         </div>
       </div>
     );
   }
 }
-
 export default ContactComponent;

@@ -1,5 +1,13 @@
 import React from 'react';
-import { Form, FormGroup, Col, Input, Label, Button } from 'reactstrap';
+import {
+  Form,
+  FormGroup,
+  Col,
+  Input,
+  Label,
+  Button,
+  FormFeedback,
+} from 'reactstrap';
 function FeedbackComponent() {
   return (
     <div className="row row-content">

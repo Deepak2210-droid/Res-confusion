@@ -24,9 +24,13 @@ function RenderLeader({ leader }) {
   );
 }
 
-function About(props) {
+function AboutUs(props) {
   const leaders = props.leaders.map((leader) => {
-    return <RenderLeader leader={leader} />;
+    return (
+      <div>
+        <RenderLeader leader={leader} />
+      </div>
+    );
   });
 
   return (
@@ -112,4 +116,4 @@ function About(props) {
   );
 }
 
-export default About;
+export default AboutUs;
