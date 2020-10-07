@@ -25,7 +25,12 @@ function RenderCard({ item }) {
         </CardBody>
       </Card>
     );
-  } else return <div>hellp</div>;
+  } else
+    return (
+      <div>
+        <strong>NO DATA AVAILABLE</strong>
+      </div>
+    );
 }
 
 function HomeComponent(props) {
