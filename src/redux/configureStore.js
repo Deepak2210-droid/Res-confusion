@@ -5,6 +5,7 @@ import { Promotions } from './promotions';
 import { Leaders } from './leaders';
 
 export const ConfigureStore = () => {
+  console.log('store is created');
   const store = createStore(
     combineReducers({
       dishes: Dishes,

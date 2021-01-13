@@ -13,8 +13,8 @@ import DishDetail from './Dishdetail';
 import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import ContactComponent from './ContactComponent';
-import FeedbackComponent from './FeedbackComponent';
 import AboutUs from './AboutUs';
+import { addComment } from '../redux/ActionCreator';
 const mapStateToprops = (state) => {
   return {
     dishes: state.dishes,
@@ -23,6 +23,10 @@ const mapStateToprops = (state) => {
     leaders: state.leaders,
   };
 };
+const mapDispatchToProps = (dispatch) => ({
+  addComment: (dishId, rating, author, comment) =>
+    dispatch(addComment(dishId, rating, author, comment)),
+});
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +52,9 @@ class Main extends Component {
             )[0]
           }
           comments={this.props.comments.filter(
-            (comment) => comment.dishId === parseInt(match.params.dishId)
+            (comment) => comment.dishId === parseInt(match.params.dishId, 10)
           )}
+          addComment={this.props.addComment}
         />
       );
     };
@@ -70,7 +75,6 @@ class Main extends Component {
             <Route path="/menu/:dishId" component={DishWithId} />
             <Route exact path="/contactus" component={ContactComponent} />
             <Route path="/aboutus" component={AboutUsPage} />
-            <Route path="/feedback" component={FeedbackComponent} />
             <Redirect to="/home" />
           </Switch>
 
@@ -80,4 +84,4 @@ class Main extends Component {
     );
   }
 }
-export default withRouter(connect(mapStateToprops)(Main));
+export default withRouter(connect(mapStateToprops, mapDispatchToProps)(Main));

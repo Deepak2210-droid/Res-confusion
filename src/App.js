@@ -8,6 +8,7 @@ import { ConfigureStore } from './redux/configureStore';
 const store = ConfigureStore();
 class App extends Component {
   render() {
+    console.log('app');
     return (
       <Provider store={store}>
         <BrowserRouter>
