@@ -180,7 +180,7 @@ export class CommentForm extends Component {
                         show="touched"
                         messages={{
                           required: 'Required',
-                          minLength: 'Must be greater than 3 characters',
+                          minLength: '  Must be greater than 3 characters',
                           maxLength: 'Must be 15 charaters or less',
                         }}
                       />
