@@ -21,7 +21,7 @@ export const fetchDishes = () => (dispatch) => {
   setTimeout(() => {
     dispatch(addDishes(DISHES));
   }, 2000);
-};
+}; 
 //Creating Actions
 export const dishesLoading = () => ({
   type: ActionTypes.DISHES_LOADING,
@@ -31,3 +31,4 @@ export const dishesFailed = (errmsg) => ({
   type: ActionTypes.DISHES_FAILED,
   payload: errmsg,
 });
+ d
