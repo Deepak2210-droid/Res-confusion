@@ -31,4 +31,3 @@ export const dishesFailed = (errmsg) => ({
   type: ActionTypes.DISHES_FAILED,
   payload: errmsg,
 });
- d
